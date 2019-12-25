@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form #form="ngForm" (ngSubmit)="validation(form.value)">
+  <div class="form-group">
+    <label class="font-weight-bold">Enter Source </label>
+    <br>
+    <input type="text" id="source" name="source" class="form-control" fromControlName="soure" placeholder="Source"
+      required ngModel>
+  </div>
+  <div class="form-group">
+    <label class="font-weight-bold">Enter Destination </label>
+    <br>
+    <input type="text" id="destination" name="destination" class="form-control" fromControlName="destination"
+      placeholder="Destination" required ngModel>
+  </div>
+  <br>
+  <div class="form-group">
+    <button type="submit" style="margin-right:10px" class="btn btn-success" [disabled]="form.invalid">Genarate</button>
+    <button type="reset" style="margin-right:10px" class="btn btn-success" (click)="form.reset()">Clear</button>
+  </div>
+</form>
+
+
+<div class="steps">
+    <svg xmlns='http://www.w3.org/2000/svg' width='1500' height='500'>
+      <defs>
+        <marker id='markerCircle' markerWidth='8' markerHeight='8' refX='5' refY='5'>
+          <circle cx='5' cy='5' r='3' style='stroke: none; fill:#000000;' />
+        </marker>
+        <marker id='markerArrow' markerWidth='13' markerHeight='13' refX='2' refY='6' orient='auto'>
+          <path d='M2,2 L2,11 L10,6 L2,2' style='fill: #000000;' />
+        </marker>
+        <path id="continous" d='M 10 10 L 300 10' style='stroke: #12129e; stroke-width: 2px; fill: none;marker-start: url(#markerCircle);' />
+        <path id="nonContinous" d='M 10 10 L 300 10' style='stroke: #6666ff; stroke-width: 2px; fill: none;marker-start: url(#markerCircle);marker-end: url(#markerArrow);' />
+        <path id="levelUp" d="M246,212 C395,224 248,93 374,94" style='stroke: #ffe866; stroke-width: 2px; fill: none;marker-start: url(#markerCircle);' />
+        <path id="levelDown" d="M433,195 C211,195 481,84 266,90" style='stroke: #ffe866; stroke-width: 2px; fill: none;marker-start: url(#markerCircle);' />
+      </defs>
+    </svg>    
+</div>
+
+<!-- d="M433,195 C211,195 481,84 266,90" -->
+
+<div class="svg" [innerHTML]="svg"></div>
+<div class="svg1" [innerHTML]="svg1"></div>
+<div class="svg2" [innerHTML]="svg2"></div>
+<div class="svg3" [innerHTML]="svg3"></div>
+
+
+
+
+<router-outlet></router-outlet>
